@@ -35,7 +35,47 @@
         // how do we fix this? we take a copy instead
         const team2 = player.slice();
         const team3 = [...player];
-        console.log(team2, team3);
+        const team4 = [].concat(player);
+        const team5 = Array.from(player);
+        console.log(team2, team3, team4);
+
+        team4[3] = 'Horse';
+        console.log(player, team4);
+
+        // with object
+        const person = {
+            name: 'Paul Hahm',
+            age: 36,
+        };
+
+        const captain = person;
+        captain.number =17;
+        console.log(person); // original Array has changed
+
+        // copy of array
+        const captain2 = Object.assign({}, person, {number: 99}); // assign copied of array
+        console.log(person, captain2);
+
+        const captain3 = {...person};
+        console.log(captain3);
+
+        const paul = {
+            name: 'paul',
+            age: 36,
+            social: {
+                twitter: '@paulhahm',
+                facebook: 'paul.developer'
+            }
+        };
+
+        console.log(paul);
+        const dev = Object.assign({}, paul);
+        dev.social.twitter = '@Joker'; // this changes the original Array
+
+        console.log(paul, dev);
+
+        // way to deep clone Array
+        // const dev2 = JSON.parse(JSON.stringify(paul));
 
     </script>
 </body>
